@@ -5,12 +5,12 @@ const questions = [
       answer: "Paris"
     },
     {
-      question: "What is the largest planet in our solar system?",
-      answer: "Jupiter"
+      question: "What are the single-digit odd numbers?",
+      answer: "1<br>3<br>5<br>7<br>9"
     },
     {
-      question: "What is the tallest mammal?",
-      answer: "Giraffe"
+      question: "What are the two-digit perfect squares?",
+      answer: "16<br>25<br>36<br>49<br>64<br>81"
     }
   ];
   
@@ -373,7 +373,7 @@ function displayBlockly() {
   //<block type="text">Paris</block>
 
   // inject our xml into the workspace
-  Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(startBlocks), workspace);
+  Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(startBlocks), workspace);
 
 
   workspace.addChangeListener(() => {
@@ -387,7 +387,9 @@ function displayBlockly() {
 // Define a function to check the user's answer and display the next question
 function checkAnswer(event) {
   event.preventDefault();
-  const answer = document.querySelector("#answer").textContent;
+  //const answer = document.querySelector("#answer").textContent;
+  const answer = document.getElementById('answer').innerHTML;
+  console.log(answer);
   const question = questions[currentQuestion];
   if (answer.toLowerCase() === question.answer.toLowerCase()) {
     currentQuestion++;
