@@ -30,9 +30,10 @@ let currentQuestion = Number(localStorage.getItem("currentQuestion")) || 0;
 // Define a function to display the current question and Blockly workspace
 function displayQuestion() {
   const question = questions[currentQuestion];
+  document.getElementById("question").innerText = question.question; // instead of <h2>${question.question}</h2>
   const form = document.querySelector("form");
   form.innerHTML = `
-    <h2>${question.question}</h2>
+    
     <button type="button" onclick="runCode()">Run Code</button>
     <button type="button" onclick="clearOutput()">Clear Output</button>
     <button type="submit">Submit Output</button>
