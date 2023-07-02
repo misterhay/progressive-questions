@@ -1,8 +1,8 @@
 // Define an array of objects to store the questions and answers
 const questions = [
     {
-      question: "What is the capital of France?",
-      answer: "Paris"
+      question: "What is the capital of Canada?",
+      answer: "Ottawa"
     },
     {
       question: "What are the single-digit odd numbers?",
@@ -364,7 +364,7 @@ function displayBlockly() {
     <block type="text_print">
       <value name="TEXT">
         <block type="text">
-          <field name="TEXT">Paris</field>
+          <field name="TEXT">Ottawa</field>
         </block>
       </value>
     </block>  
@@ -378,7 +378,6 @@ function displayBlockly() {
 
   workspace.addChangeListener(() => {
     const code = Blockly.Python.workspaceToCode(workspace);
-    //document.querySelector("#pythonCode").textContent = code;
     document.getElementById('pythonCode').innerText = code;
     //const javascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
   });
@@ -389,9 +388,10 @@ function checkAnswer(event) {
   event.preventDefault();
   //const answer = document.querySelector("#answer").textContent;
   const answer = document.getElementById('answer').innerHTML;
-  console.log(answer);
+  //console.log(answer);
   const question = questions[currentQuestion];
   if (answer.toLowerCase() === question.answer.toLowerCase()) {
+    confirm("Correct"); // use this since we have remaped the alert function, ok and cancel buttons do nothing
     currentQuestion++;
     localStorage.setItem("currentQuestion", currentQuestion);
     if (currentQuestion < questions.length) {
@@ -400,7 +400,7 @@ function checkAnswer(event) {
     } else {
       const form = document.querySelector("form");
       form.innerHTML = `
-        <h2>You scored ${questions.length} out of ${questions.length}!</h2>
+        <h2>Well done, you completed all ${questions.length} challenges.</h2>
         <button type="button" onclick="restart()">Restart</button>
       `;
     }
