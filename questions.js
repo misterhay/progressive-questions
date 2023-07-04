@@ -34,11 +34,11 @@ function displayQuestion() {
   const form = document.querySelector("form");
   form.innerHTML = `
     
-    <button type="button" onclick="runCode()">Run Code</button>
+    <button type="button" onclick="runCode()">▶ Run Code</button>
     <button type="button" onclick="clearOutput()">Clear Output</button>
-    <button type="submit">Submit Output</button>
-    <button type="button" onclick="previousQuestion()">Previous Question</button>
-    <button type="button" onclick="restart()">Restart Quiz</button>
+    <button style="color: green" type="submit">Submit Output</button>
+    <button type="button" style="color: orange" onclick="previousQuestion()">Previous Question</button>
+    <button type="button" style="color: red" onclick="restart()">Restart Quiz</button>
   `;
 }
 
