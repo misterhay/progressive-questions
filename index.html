@@ -8,28 +8,24 @@
     <script src="https://blockly-demo.appspot.com/static/python_compressed.js"></script>
     <script src="https://blockly-demo.appspot.com/static/javascript_compressed.js"></script>
     <script src="https://blockly-demo.appspot.com/static/msg/js/en.js"></script>
+    <!-- Prism for syntax highlighting-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
   </head>
   <body>
     <!-- <div id="blocklyDiv" style="height: 500px; width: 100%;"></div> -->
     <table>
-    <tr>
-      <td style="vertical-align: top;">
+    <tr style="width: 100%;">
+      <td style="vertical-align: top; width: 30%;">
         <h2 id="question">Progressive Questions</h2>
         <form><!-- The JavaScript code will generate the questions and choices here --></form>
-        <hr>
-        <p>Code</p>
-        <hr>
-        <pre id="pythonCode"></pre>
-        <hr>
-        <p>Output</p>
-        <hr>
+        <table>
+          <pre id="pythonCode" class="language-python"></pre>
+        </table>        
         <pre id="output"></pre>
-        <hr>
-
       </td>
-      <td id="blocklyDiv" style="height: 500px; width: 70%;">
-
-      </td>
+      <td id="blocklyDiv" style="height: 500px; width: 70%;"></td>
     </tr>
     
   </table>

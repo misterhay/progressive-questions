@@ -376,12 +376,16 @@ function displayBlockly() {
   // inject our xml into the workspace
   Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(startBlocks), workspace);
 
+  // generate Python code with syntax highlighting
   workspace.addChangeListener(() => {
-    const code = Blockly.Python.workspaceToCode(workspace);
-    document.getElementById('pythonCode').innerText = code;
     //const javascriptCode = Blockly.JavaScript.workspaceToCode(workspace);
+    const code = Blockly.Python.workspaceToCode(workspace);
+    let codeElement = document.getElementById('pythonCode')
+    codeElement.textContent = code;
+    Prism.highlightElement(codeElement);
   });
 }
+
 
 // Define a function to check the user's answer and display the next question
 function checkAnswer(event) {
