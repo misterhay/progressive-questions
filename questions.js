@@ -16,11 +16,11 @@ const questions = [
   
 // remap alerts to the answer div
 window.alert = function(txt) {
-  currentOutput = document.getElementById('answer').innerText;
+  currentOutput = document.getElementById('output').innerText;
   if (currentOutput == '') { // if the current output is empty, just set it to the text
-    document.getElementById('answer').innerText = txt;
+    document.getElementById('output').innerText = txt;
   } else {  // otherwise, add a new line and then the text
-    document.getElementById('answer').innerText = currentOutput + '\n' + txt;
+    document.getElementById('output').innerText = currentOutput + '\n' + txt;
   }
 }
 
@@ -376,7 +376,6 @@ function displayBlockly() {
   // inject our xml into the workspace
   Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(startBlocks), workspace);
 
-
   workspace.addChangeListener(() => {
     const code = Blockly.Python.workspaceToCode(workspace);
     document.getElementById('pythonCode').innerText = code;
@@ -388,7 +387,7 @@ function displayBlockly() {
 function checkAnswer(event) {
   event.preventDefault();
   //const answer = document.querySelector("#answer").textContent;
-  const answer = document.getElementById('answer').innerHTML;
+  const answer = document.getElementById('output').innerHTML;
   //console.log(answer);
   const question = questions[currentQuestion];
   if (answer.toLowerCase() === question.answer.toLowerCase()) {
@@ -446,7 +445,7 @@ function restart() {
 
 // a function to clear the output
 function clearOutput() {
-  document.getElementById('answer').innerText = '';
+  document.getElementById('output').innerText = '';
 }
 
 // Call the displayQuestion function to start the quiz

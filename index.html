@@ -8,34 +8,32 @@
     <script src="https://blockly-demo.appspot.com/static/python_compressed.js"></script>
     <script src="https://blockly-demo.appspot.com/static/javascript_compressed.js"></script>
     <script src="https://blockly-demo.appspot.com/static/msg/js/en.js"></script>
-    <style>
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 10px;
-        vertical-align: top;
-      }
-      </style>
   </head>
   <body>
-    <h2 id="question">Progressive Questions</h2>
-    <div id="blocklyDiv" style="height: 500px; width: 100%;"></div>
-    <form>
-      <!-- The JavaScript code will generate the questions and choices here -->
-    </form>
-    <br>
+    <!-- <div id="blocklyDiv" style="height: 500px; width: 100%;"></div> -->
     <table>
-      <tr>
-        <td><b>Code</b></td>
-        <td><pre id="pythonCode"></pre></td>
-      </tr>
-      <tr>
-        <td><b>Output</b></td>
-        <td><pre id="answer"></pre></td>
-      </tr>
-    </table>
+    <tr>
+      <td style="vertical-align: top;">
+        <h2 id="question">Progressive Questions</h2>
+        <form><!-- The JavaScript code will generate the questions and choices here --></form>
+        <hr>
+        <p>Code</p>
+        <hr>
+        <pre id="pythonCode"></pre>
+        <hr>
+        <p>Output</p>
+        <hr>
+        <pre id="output"></pre>
+        <hr>
+
+      </td>
+      <td id="blocklyDiv" style="height: 500px; width: 70%;">
+
+      </td>
+    </tr>
     
-    
+  </table>
+  
     <script src="questions.js"></script>
   </body>
 </html>
